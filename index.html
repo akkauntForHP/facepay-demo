@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uz" class="dark">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -399,10 +399,12 @@
                 localStorage.setItem('facepay-theme', 'dark');
             }
         }
-        // Restore theme on load
+        // Restore theme on load (Light mode is standard / default)
         (function() {
             const savedTheme = localStorage.getItem('facepay-theme');
-            if (savedTheme === 'light') {
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
                 document.documentElement.classList.remove('dark');
             }
         })();
